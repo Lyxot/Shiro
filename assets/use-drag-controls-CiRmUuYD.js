@@ -1,0 +1,1 @@
+import{u as s}from"./proxy-DOWuyJr3.js";class r{constructor(){this.componentControls=new Set}subscribe(t){return this.componentControls.add(t),()=>this.componentControls.delete(t)}start(t,o){this.componentControls.forEach(n=>{n.start(t.nativeEvent||t,o)})}}const e=()=>new r;function u(){return s(e)}export{r as D,u};
