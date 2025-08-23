@@ -21,9 +21,11 @@ jobs:
     needs: version
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
-          repository: Innei/Shiro
+          repository: Lyxot/Shiro
+          lfs: true
+          ref: main
 
       - name: Git tag
         run: |
@@ -74,11 +76,12 @@ jobs:
         node-version: [18.x]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
-          repository: Innei/Shiro
+          repository: Lyxot/Shiro
           fetch-depth: 0
           lfs: true
+          ref: main
 
       - name: Checkout LFS objects
         run: git lfs checkout
@@ -87,9 +90,9 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git tag -a ${{ needs.version.outputs.version }} -m "Release ${{ needs.version.outputs.version }}"
+          git tag -a ${{ needs.version.outputs.version }} -m "Release ${{ needs.version.outputs.version }}" || :
 
-      - uses: pnpm/action-setup@v4.1.0
+      - uses: pnpm/action-setup@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -101,7 +104,6 @@ jobs:
         run: pnpm install
 
       - name: Build project
-
         run: |
           sh ./ci-release-build.sh
 
