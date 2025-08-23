@@ -20,6 +20,7 @@ import {
 } from '~/components/icons/menu-collection'
 import { BackgroundImageProvider } from '~/components/modules/shared/BackgroundImageProvider'
 import { isSupportIcon, SocialIcon } from '~/components/modules/home/SocialIcon'
+import { useHitokoto } from '~/hooks/biz/use-hitokoto'
 import { usePresentSubscribeModal } from '~/components/modules/subscribe'
 import { StyledButton } from '~/components/ui/button'
 import { NumberSmoothTransition } from '~/components/ui/number-transition/NumberSmoothTransition'
@@ -100,6 +101,7 @@ const Hero = () => {
       ...config.hero,
     }
   })!
+  const { text: hitokoto, refresh: refreshHitokoto, canRefresh } = useHitokoto()
   const siteOwner = useAggregationSelector((agg) => agg.user)
   const { avatar, socialIds } = siteOwner || {}
 
@@ -191,9 +193,21 @@ const Hero = () => {
             'center text-neutral-800/80 dark:text-neutral-200/80',
           )}
         >
-          <small className="text-center">
-            当第一颗卫星飞向大气层外，我们便以为自己终有一日会征服宇宙。
-          </small>
+          <div className="group relative flex items-center justify-center">
+            <small className="text-center">
+              {hitokoto}
+            </small>
+            {canRefresh && (
+              <button
+                onClick={refreshHitokoto}
+                className="ml-2 opacity-0 transition-opacity duration-200 group-hover:opacity-60 hover:!opacity-100"
+                title="刷新一言"
+                aria-label="刷新一言"
+              >
+                <i className="i-mingcute-refresh-2-line text-sm" />
+              </button>
+            )}
+          </div>
           <span className="mt-8 animate-bounce">
             <i className="i-mingcute-right-line rotate-90 text-2xl" />
           </span>

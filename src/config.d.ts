@@ -62,9 +62,14 @@ declare global {
   export interface Hero {
     title: Title
     description: string
+    hitokoto?: Hitokoto
   }
   export interface Title {
     template: TemplateItem[]
+  }
+  export interface Hitokoto {
+    random?: boolean
+    custom?: string
   }
   export interface TemplateItem {
     type: string

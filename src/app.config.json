@@ -118,7 +118,10 @@
           }
         ]
       },
-      "description": "An independent developer coding with love."
+      "description": "An independent developer coding with love.",
+      "hitokoto": {
+        "random": true
+      }
     },
     "module": {
       "donate": {
