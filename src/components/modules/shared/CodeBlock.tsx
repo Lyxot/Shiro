@@ -110,12 +110,15 @@ export const CodeBlockRender = (props: {
 }
 
 /**
- *  格式化代码：去除多余的缩进。
+ *  格式化代码：去除多余的缩进和结尾换行符。
     多余的缩进：如果所有代码行中，开头都包括 n 个空格，那么开头的空格是多余的
+    结尾换行符：去除代码块结尾的多余空行
  *
  */
 function formatCode(code: string): string {
-  const lines = code.split('\n')
+  // 去除结尾的换行符和空白字符
+  const trimmedCode = code.replace(/\s+$/, '')
+  const lines = trimmedCode.split('\n')
 
   // 计算最小的共同缩进（忽略空行）
   let minIndent = Number.MAX_SAFE_INTEGER
@@ -129,7 +132,7 @@ function formatCode(code: string): string {
   })
 
   // 如果所有行都不包含空格或者只有空行，则不做处理
-  if (minIndent === Number.MAX_SAFE_INTEGER) return code
+  if (minIndent === Number.MAX_SAFE_INTEGER) return trimmedCode
 
   // 移除每行的共同最小缩进
   const formattedLines = lines.map((line) => {
