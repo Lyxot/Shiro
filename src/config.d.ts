@@ -16,12 +16,19 @@ declare global {
     hero: Hero
     module: Module
     color?: AccentColor
+    bg?: BackgroundConfig
 
     custom?: Custom
 
     poweredBy?: {
       vercel?: boolean
     }
+  }
+
+  export interface BackgroundConfig {
+    images: string[]
+    blur?: number
+    opacity?: number
   }
 
   export interface LinkSection {

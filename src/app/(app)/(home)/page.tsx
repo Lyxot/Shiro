@@ -18,6 +18,7 @@ import {
   MdiLightbulbOn20,
   RMixPlanet,
 } from '~/components/icons/menu-collection'
+import { BackgroundImageProvider } from '~/components/modules/shared/BackgroundImageProvider'
 import { isSupportIcon, SocialIcon } from '~/components/modules/home/SocialIcon'
 import { usePresentSubscribeModal } from '~/components/modules/subscribe'
 import { StyledButton } from '~/components/ui/button'
@@ -40,8 +41,12 @@ import { ActivityPostList } from './components/ActivityPostList'
 import { ActivityRecent } from './components/ActivityRecent'
 
 export default function Home() {
+  const bgConfig = useAppConfigSelector((config) => config.bg)
+  const hasBgConfig = bgConfig && bgConfig.images && bgConfig.images.length > 0
+
   return (
-    <div>
+    <div className={hasBgConfig ? "home-background" : ""}>
+      {hasBgConfig && <BackgroundImageProvider />}
       <Hero />
       <ActivityScreen />
       <Windsock />

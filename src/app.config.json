@@ -63,10 +63,14 @@
     ]
   },
   "config": {
-    "bg": [
-      "https://github.com/Innei/static/blob/master/images/F0q8mwwaIAEtird.jpeg?raw=true",
-      "https://github.com/Innei/static/blob/master/images/IMG_2111.jpeg.webp.jpg?raw=true"
-    ],
+    "bg": {
+      "images": [
+        "https://github.com/Innei/static/blob/master/images/F0q8mwwaIAEtird.jpeg?raw=true",
+        "https://github.com/Innei/static/blob/master/images/IMG_2111.jpeg.webp.jpg?raw=true"
+      ],
+      "blur": 5,
+      "opacity": 0.65
+    },
     "custom": {
       "css": [],
       "styles": [],
