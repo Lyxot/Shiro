@@ -102,7 +102,7 @@ const useLoadHighlighter = (ref: React.RefObject<HTMLElement | null>) => {
 
   useInsertionEffect(() => {
     const css = loadStyleSheet(
-      `https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism-themes/1.9.0/prism-one-${
+      `https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-one-${
         isPrintMode ? 'light' : isDark ? 'dark' : 'light'
       }.css`,
     )
@@ -118,19 +118,19 @@ const useLoadHighlighter = (ref: React.RefObject<HTMLElement | null>) => {
   }, [isDark, isPrintMode])
   useInsertionEffect(() => {
     loadStyleSheet(
-      'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.css',
+      'https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/line-numbers/prism-line-numbers.min.css',
     )
 
     loadScript(
-      'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.23.0/components/prism-core.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js',
     )
       .then(() =>
         Promise.all([
           loadScript(
-            'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js',
           ),
           loadScript(
-            'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/line-numbers/prism-line-numbers.min.js',
           ),
         ]),
       )

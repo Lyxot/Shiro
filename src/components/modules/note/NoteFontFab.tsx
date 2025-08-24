@@ -55,7 +55,7 @@ export const NoteFontSettingFab = () => {
 const FONT_CONFIG = {
   youzai: {
     stylesheetUrl:
-      'https://fastly.jsdelivr.net/gh/Innei/static@master/fonts/yozai/stylesheet.css',
+      'https://registry.npmmirror.com/@chinese-fonts/yozai/3.0.0/files/dist/Yozai-Regular/result.css',
     fontFamily: `'Yozai', 'LXGW WenKai Screen R', var(--font-sans), var(--font-serif), system-ui`,
   },
   sans: {
