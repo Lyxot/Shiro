@@ -19,13 +19,17 @@
     "prod:pm2": "cross-env NODE_ENV=production pm2 restart ecosystem.config.cjs",
     "prod:reload": "pm2 reload ecosystem.config.cjs",
     "prod:stop": "pm2 stop ecosystem.config.cjs",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.782.0",
     "@excalidraw/excalidraw": "0.17.0",
     "@floating-ui/react-dom": "2.1.4",
     "@mx-space/api-client": "1.17.0",
+    "@opennextjs/cloudflare": "^1.6.5",
     "@openpanel/nextjs": "1.0.8",
     "@radix-ui/react-avatar": "1.1.10",
     "@radix-ui/react-dialog": "1.1.14",
@@ -157,6 +161,7 @@
     "tailwindcss-animated": "2.0.0",
     "tailwindcss-motion": "1.1.1",
     "typescript": "5.8.3",
+    "wrangler": "^4.32.0",
     "zx": "8.5.5"
   },
   "pnpm": {
@@ -201,5 +206,9 @@
   },
   "browserslist": [
     "defaults and fully supports es6-module"
-  ]
+  ],
+  "optionalDependencies": {
+    "bufferutil": "^4.0.9",
+    "utf-8-validate": "^6.0.5"
+  }
 }
