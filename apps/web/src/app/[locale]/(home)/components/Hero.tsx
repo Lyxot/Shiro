@@ -160,18 +160,16 @@ const RemoteHitokoto = () => {
         SentenceType.原创,
         SentenceType.哲学,
         SentenceType.文学,
-      ]).then((data) => {
-        const postfix = Object.values({
-          from: data.from,
-          from_who: data.from_who,
-          creator: data.creator,
-        }).find(Boolean)
-        if (!data.hitokoto) {
-          return null
-        } else {
-          return data.hitokoto + (postfix ? ` —— ${postfix}` : '')
-        }
-      }),
+      ]),
+    select: (data) => {
+      const postfix = Object.values({
+        from: data.from,
+        from_who: data.from_who,
+        creator: data.creator,
+      }).find(Boolean)
+      if (!data.hitokoto) return null
+      return data.hitokoto + (postfix ? ` —— ${postfix}` : '')
+    },
     refetchInterval: 30_0000,
     staleTime: Infinity,
     refetchOnMount: 'always',
