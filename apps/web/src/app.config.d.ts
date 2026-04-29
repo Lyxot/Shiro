@@ -16,12 +16,19 @@ declare global {
     hero: Hero
     module: Module
     color?: AccentColor
+    bg?: BackgroundConfig
 
     custom?: Custom
 
     poweredBy?: {
       vercel?: boolean
     }
+  }
+
+  export interface BackgroundConfig {
+    images: string[]
+    blur?: number
+    opacity?: number
   }
 
   export interface LinkSection {
@@ -55,13 +62,14 @@ declare global {
   export interface Hero {
     title: Title
     description: string
-    hitokoto?: {
-      random?: boolean
-      custom?: string
-    }
+    hitokoto?: Hitokoto
   }
   export interface Title {
     template: TemplateItem[]
+  }
+  export interface Hitokoto {
+    random?: boolean
+    custom?: string
   }
   export interface TemplateItem {
     type: string

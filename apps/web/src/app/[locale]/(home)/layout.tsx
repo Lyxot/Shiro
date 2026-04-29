@@ -8,6 +8,7 @@ import { definePrerenderPage, requestErrorHandler } from '~/lib/request.server'
 
 import { ActivityScreen } from './components/ActivityScreen'
 import { Hero } from './components/Hero'
+import { HomeBackground } from './components/HomeBackground'
 import { HomePageTimeLine } from './components/HomePageTimeLine'
 import { Windsock } from './components/Windsock'
 import { queryKey } from './query'
@@ -36,11 +37,13 @@ export default definePrerenderPage()({
 
     return (
       <QueryHydrate state={dehydrateState}>
-        <Hero />
-        <ActivityScreen />
-        <HomePageTimeLine />
-        <Windsock />
-        {props.children}
+        <HomeBackground>
+          <Hero />
+          <ActivityScreen />
+          <HomePageTimeLine />
+          <Windsock />
+          {props.children}
+        </HomeBackground>
       </QueryHydrate>
     )
   },

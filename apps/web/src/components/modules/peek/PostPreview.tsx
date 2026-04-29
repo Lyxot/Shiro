@@ -43,12 +43,7 @@ export const PostPreview: FC<PostPreviewProps> = (props) => {
       {!!postData.id && <AckRead id={postData.id} type="post" />}
       <BottomToUpSmoothTransitionView>
         <Paper>
-          <article
-            className={clsx(
-              'relative w-full min-w-0',
-             'prose',
-            )}
-          >
+          <article className={clsx('relative w-full min-w-0', 'prose')}>
             <header className="mb-8">
               <h1 className="mt-8 text-balance text-center">
                 {postData.title}

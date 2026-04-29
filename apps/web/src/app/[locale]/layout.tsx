@@ -18,7 +18,14 @@ import { SearchPanelWithHotKey } from '~/components/modules/shared/SearchFAB'
 import { TocAutoScroll } from '~/components/modules/toc/TocAutoScroll'
 import { routing } from '~/i18n/routing'
 import { PreRenderError } from '~/lib/error-factory'
-import { sansFont, serifFont } from '~/lib/fonts'
+import {
+  b612MonoFont,
+  firaCodeFont,
+  jetbrainsMonoFont,
+  sansFont,
+  serifFont,
+  sourceCodeProFont,
+} from '~/lib/fonts'
 import { apiClient } from '~/lib/request'
 import { AggregationProvider } from '~/providers/root/aggregation-data-provider'
 import { AppFeatureProvider } from '~/providers/root/app-feature-provider'
@@ -168,7 +175,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         </head>
         <body
           suppressHydrationWarning
-          className={`${sansFont.variable} ${serifFont.variable} m-0 h-full p-0 font-sans`}
+          className={`${sansFont.variable} ${serifFont.variable} ${b612MonoFont.variable} ${firaCodeFont.variable} ${jetbrainsMonoFont.variable} ${sourceCodeProFont.variable} m-0 h-full p-0 font-sans`}
         >
           <NextIntlClientProvider messages={messages}>
             <div className="center flex h-screen">
@@ -234,7 +241,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           </head>
           <body
             suppressHydrationWarning
-            className={`${sansFont.variable} ${serifFont.variable} m-0 h-full p-0 font-sans`}
+            className={`${sansFont.variable} ${serifFont.variable} ${b612MonoFont.variable} ${firaCodeFont.variable} ${jetbrainsMonoFont.variable} ${sourceCodeProFont.variable} m-0 h-full p-0 font-sans`}
           >
             <NextIntlClientProvider messages={messages}>
               <ErrorBoundary>

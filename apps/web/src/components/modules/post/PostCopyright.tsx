@@ -9,7 +9,6 @@ import { toast } from '~/lib/toast'
 import { useCurrentPostDataSelector } from '~/providers/post/CurrentPostDataProvider'
 import { useAggregationSelector } from '~/providers/root/aggregation-data-provider'
 
-
 export const PostCopyright: FC = () => {
   const t = useTranslations('post')
   const tCommon = useTranslations('common')

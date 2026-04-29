@@ -101,9 +101,7 @@ export const PostMetaBarInternal: Component = ({ className }) => {
   })
 
   if (!meta) return null
-  return (
-    <PostMetaBar meta={meta} className={className} />
-  )
+  return <PostMetaBar meta={meta} className={className} />
 }
 
 export const PostDataReValidate: FC<{

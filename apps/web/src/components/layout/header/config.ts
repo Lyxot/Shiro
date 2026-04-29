@@ -57,6 +57,12 @@ export const headerMenuConfig: IHeaderMenu[] = [
   },
 
   {
+    title: '思考',
+    icon: h(MdiLightbulbOn20),
+    path: '/thinking',
+  },
+
+  {
     title: '时光',
     titleKey: 'nav_timeline',
     icon: h(FaSolidHistory),
@@ -92,24 +98,11 @@ export const headerMenuConfig: IHeaderMenu[] = [
   },
 
   {
-    title: '思考',
-    titleKey: 'nav_thinking',
-    icon: h(MdiLightbulbOn20),
-    path: '/thinking',
-  },
-
-  {
     title: '更多',
     titleKey: 'nav_more',
     icon: h(FaSolidCircleNotch),
     path: '#',
     subMenu: [
-      {
-        title: '友链',
-        titleKey: 'nav_friends',
-        icon: h(FaSolidUserFriends),
-        path: '/friends',
-      },
       {
         title: '项目',
         titleKey: 'nav_projects',
@@ -121,6 +114,11 @@ export const headerMenuConfig: IHeaderMenu[] = [
         titleKey: 'nav_says',
         path: '/says',
         icon: h(FaSolidComments),
+      },
+      {
+        title: '友链',
+        icon: h(FaSolidUserFriends),
+        path: '/friends',
       },
       {
         title: '跃迁',

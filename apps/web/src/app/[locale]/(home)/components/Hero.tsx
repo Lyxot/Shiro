@@ -179,8 +179,14 @@ const RemoteHitokoto = () => {
   })
 
   const memoedLoadingRef = useRef(isLoading)
+  const t = useTranslations('home')
 
-  if (!hitokoto) return null
+  if (!hitokoto)
+    return (
+      <small className="text-center opacity-80">
+        {t('hero_default_hitokoto')}
+      </small>
+    )
 
   return (
     <m.small
