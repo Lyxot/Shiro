@@ -71,9 +71,6 @@ jobs:
     name: Upload Release Asset
     runs-on: ubuntu-latest
     needs: version
-    strategy:
-      matrix:
-        node-version: [18.x]
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
@@ -94,14 +91,14 @@ jobs:
 
       - uses: pnpm/action-setup@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 22
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build project
         run: |
